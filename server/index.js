@@ -6,17 +6,7 @@ var app = express();
 
 const port = process.env.PORT || 8080;
 
-app.use(express.static(__dirname + '/../react-client/dist'));
-
-app.get('/items', function (req, res) {
-  items.selectAll(function(err, data) {
-    if(err) {
-      res.sendStatus(500);
-    } else {
-      res.json(data);
-    }
-  });
-});
+app.use(express.static(__dirname + '/../client/dist'));
 
 app.listen(port, function() {
   console.log('listening on port', port);
