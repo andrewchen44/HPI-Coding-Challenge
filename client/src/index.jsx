@@ -9,13 +9,21 @@ class App extends React.Component {
     super();
   }
   render() {
-    return (
-      <div>
-        <SearchBar/>
-        <VideoPlayer/>
-        <VideoList/>
-      </div>
-    );
+    return <div>
+        <nav>
+          <div>
+            <SearchBar />
+          </div>
+        </nav>
+        <div>
+          <div>
+            <VideoPlayer />
+          </div>
+          <div>
+            <VideoList />
+          </div>
+        </div>
+      </div>;
   }
 }
 

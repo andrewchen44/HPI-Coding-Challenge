@@ -5,7 +5,6 @@
 // It doesn't have to look exactly like the actual Youtube, but the picture is provided to give you a general idea of layout. 
 
 // What We're Looking For:
-
 // 1. React (with or without Redux)
 // 2. Server Side Rendering
 // 3. Database Connection
