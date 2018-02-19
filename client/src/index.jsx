@@ -1,6 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import VideoPlayer from "./components/VideoPlayer.jsx"
+import VideoPlayer from "./components/VideoPlayer.jsx";
+import SearchBar from "./components/SearchBar.jsx";
+import VideoList from "./components/VideoList.jsx"
 
 class App extends React.Component {
   constructor() {
@@ -9,8 +11,9 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <VideoPlayer/>>
-        tests
+        <SearchBar/>
+        <VideoPlayer/>
+        <VideoList/>
       </div>
     );
   }
