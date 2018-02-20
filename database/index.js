@@ -1,7 +1,7 @@
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/8080');
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/clicked');
 
-var db = mongoose.connection;
+const db = mongoose.connection;
 
 db.on('error', function() {
   console.log('mongoose connection error');
@@ -11,8 +11,17 @@ db.once('open', function() {
   console.log('mongoose connected successfully');
 });
 
-var videoSchema = mongoose.Schema({
+const videoSchema = mongoose.Schema({
   title: String
 });
 
-var Video = mongoose.model('video', videoSchema);
+const Video = mongoose.model('video', videoSchema);
+
+const addTitle = function(title) {
+  let clickedVideo = new Video({
+    title: title
+  });
+  clickedVideo.save()
+}
+
+module.exports.addTitle;

@@ -5,6 +5,7 @@ import SearchBar from "./components/SearchBar.jsx";
 import VideoList from "./components/VideoList.jsx"
 import searchYouTube from "./helper/YouTubeSearch.jsx"
 import getMetaData from "./helper/StatsAndCommentsSearch.jsx"
+import addTitle from "./helper/AddTitle.jsx"
 import key from "./config/youtube.js"
 
 class App extends React.Component {
@@ -28,7 +29,6 @@ class App extends React.Component {
   }
 
   setMetaData(data) {
-    console.log(data)
     this.setState({
       currentVideoLikes: data.ratings.likeCount,
       currentVideoDislikes: data.ratings.dislikeCount,
@@ -45,7 +45,7 @@ class App extends React.Component {
     this.setState({
       currentVideo: this.state.allVideos[index],
     })
-
+    addTitle(this.state.allVideos[index].snippet.title)
   }
 
   searchVideos(query) {
@@ -71,13 +71,13 @@ class App extends React.Component {
             <SearchBar onSearch={this.searchVideos.bind(this)} />
           </div>
         </nav>
-        <div>
-          <div>
+        <div className="videos-section"style={{float: "left"}}>
+          <span style={{display: "inline-block"}}>
             <VideoPlayer video={this.state.currentVideo} likes={this.state.currentVideoLikes} dislikes={this.state.currentVideoDislikes} comments={this.state.currentVideoComments}/>
-          </div>
-          <div>
+          </span>
+          <span style={{display: "inline-block", width: '30%'}}>
             <VideoList videos={this.state.allVideos} selectVideo={this.selectVideo.bind(this)}/>
-          </div>
+          </span>
         </div>
       </div>
     );
