@@ -1,13 +1,13 @@
 import React from "react";
 
-const VideoListEntry = () => {
+const VideoListEntry = (props) => {
   return <div>
       <div>
-        image tag here
+        <img src={props.video.snippet.thumbnails.default.url} alt="" />
       </div>
       <div>
-        <div>Video Title</div>
-        <div>Video Description</div>
+        <div>{props.video.snippet.title}</div>
+        <div>{props.video.snippet.description}</div>
       </div>
     </div>;
 };

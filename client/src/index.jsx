@@ -17,8 +17,8 @@ class App extends React.Component {
   }
 
   updateVideo(videos) {
-      this.setState({ allVideos: videos, currentVideo: videos[0] }); 
-      console.log(this.state)
+    this.setState({ allVideos: videos, currentVideo: videos[0] });
+    console.log(this.state);
   }
 
   searchVideos(query) {
@@ -27,10 +27,15 @@ class App extends React.Component {
       query: query,
       max: 5
     };
-    if(query !== '') {
-      searchYouTube(params, this.updateVideo.bind(this) );
+    if (query !== "") {
+      searchYouTube(params, this.updateVideo.bind(this));
     }
   }
+
+  componentDidMount() {
+    this.searchVideos("cute cats");
+  }
+
   render() {
     return (
       <div>
@@ -41,10 +46,10 @@ class App extends React.Component {
         </nav>
         <div>
           <div>
-            <VideoPlayer video={this.state.currentVideo}/>
+            <VideoPlayer video={this.state.currentVideo} />
           </div>
           <div>
-            <VideoList videos={this.state.allVideos}/>
+            <VideoList videos={this.state.allVideos} />
           </div>
         </div>
       </div>
