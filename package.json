@@ -4,6 +4,7 @@
   "description": "The coding challenge for HPI position",
   "main": "index.js",
   "scripts": {
+    "start": "node server/index.js",
     "react-dev": "webpack -d --watch",
     "server-dev": "nodemon server/index.js"
   },
