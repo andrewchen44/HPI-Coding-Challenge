@@ -16,7 +16,7 @@ class SearchBar extends React.Component {
   render () {
     return <div>
         <input type="text" value={this.state.query} onChange={this.changeQuery.bind(this)} />
-        <button type="submit" onClick={this.props.onSearch(this.state.query)}> submit
+        <button type="submit" onClick={() => {this.props.onSearch(this.state.query)}}> submit
         </button>
       </div>;
   }

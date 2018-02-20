@@ -4,6 +4,7 @@ import VideoPlayer from "./components/VideoPlayer.jsx";
 import SearchBar from "./components/SearchBar.jsx";
 import VideoList from "./components/VideoList.jsx"
 import searchYouTube from "./helper/YouTubeSearch.jsx"
+import getMetaData from "./helper/StatsAndCommentsSearch.jsx"
 import key from "./config/youtube.js"
 
 class App extends React.Component {
@@ -12,15 +13,39 @@ class App extends React.Component {
 
     this.state = {
       allVideos: [],
-      currentVideo: {}
+      currentVideo: {},
+      currentVideoLikes: null,
+      currentVideoDislikes: null,
+      currentVideoComments: [],
     };
   }
 
   updateVideo(videos) {
     this.setState({ 
-      allVideos: videos, 
-      currentVideo: videos[0] 
+      allVideos: videos
     });
+    this.selectVideo(0);
+  }
+
+  setMetaData(data) {
+    console.log(data)
+    this.setState({
+      currentVideoLikes: data.ratings.likeCount,
+      currentVideoDislikes: data.ratings.dislikeCount,
+      currentVideoComments: data.comments,
+    })
+  }
+
+  selectVideo(index) {
+    let params = {
+      key: key,
+      videoId: this.state.allVideos[index].id.videoId
+    }
+    getMetaData(params, this.setMetaData.bind(this));
+    this.setState({
+      currentVideo: this.state.allVideos[index],
+    })
+
   }
 
   searchVideos(query) {
@@ -48,10 +73,10 @@ class App extends React.Component {
         </nav>
         <div>
           <div>
-            <VideoPlayer video={this.state.currentVideo} />
+            <VideoPlayer video={this.state.currentVideo} likes={this.state.currentVideoLikes} dislikes={this.state.currentVideoDislikes} comments={this.state.currentVideoComments}/>
           </div>
           <div>
-            <VideoList videos={this.state.allVideos} />
+            <VideoList videos={this.state.allVideos} selectVideo={this.selectVideo.bind(this)}/>
           </div>
         </div>
       </div>
