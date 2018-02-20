@@ -12,7 +12,6 @@ class SearchBar extends React.Component {
     this.setState({query: event.target.value})
   }
 
-
   render () {
     return <div>
         <input type="text" value={this.state.query} onChange={this.changeQuery.bind(this)} />

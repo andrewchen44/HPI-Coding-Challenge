@@ -11,7 +11,6 @@ const VideoList = (props) => {
           <p>Loading...</p>
         </div>
   }
-
 }
 
 export default VideoList;

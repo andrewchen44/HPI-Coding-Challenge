@@ -5,10 +5,8 @@ const VideoListEntry = (props) => {
       <div>
         <img src={props.video.snippet.thumbnails.default.url} alt="" onClick={() => {props.selectVideo(props.index)}}/>
       </div>
-      <div>
-        <div onClick={() => {props.selectVideo(props.index)}}>{props.video.snippet.title} </div>
-        <div >{props.video.snippet.description}</div>
-      </div>
+      <div onClick={() => {props.selectVideo(props.index)}}>{props.video.snippet.title} </div>
+      <div >{props.video.snippet.description}</div>
     </div>;
 };
 

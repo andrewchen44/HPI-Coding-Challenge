@@ -24,7 +24,6 @@ const YouTubeSearch = (params, callback) => {
         console.log(error);
       }
     });
-
   };
   
   export default YouTubeSearch;
