@@ -17,8 +17,10 @@ class App extends React.Component {
   }
 
   updateVideo(videos) {
-    this.setState({ allVideos: videos, currentVideo: videos[0] });
-    console.log(this.state);
+    this.setState({ 
+      allVideos: videos, 
+      currentVideo: videos[0] 
+    });
   }
 
   searchVideos(query) {
