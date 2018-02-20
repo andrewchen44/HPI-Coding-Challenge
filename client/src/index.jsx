@@ -41,10 +41,10 @@ class App extends React.Component {
         </nav>
         <div>
           <div>
-            <VideoPlayer />
+            <VideoPlayer video={this.state.currentVideo}/>
           </div>
           <div>
-            <VideoList />
+            <VideoList videos={this.state.allVideos}/>
           </div>
         </div>
       </div>
