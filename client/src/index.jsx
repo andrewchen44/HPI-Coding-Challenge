@@ -4,6 +4,7 @@ import VideoPlayer from "./components/VideoPlayer.jsx";
 import SearchBar from "./components/SearchBar.jsx";
 import VideoList from "./components/VideoList.jsx"
 import searchYouTube from "./helper/YouTubeSearch.jsx"
+import key from "./config/youtube.js"
 
 class App extends React.Component {
   constructor(props) {
@@ -15,14 +16,20 @@ class App extends React.Component {
     };
   }
 
+  updateVideo(videos) {
+      this.setState({ allVideos: videos, currentVideo: videos[0] }); 
+      console.log(this.state)
+  }
+
   searchVideos(query) {
     var params = {
-      key: window.YOUTUBE_API_KEY,
+      key: key,
       query: query,
       max: 5
     };
-    console.log(query);
-    // searchYouTube(params, );
+    if(query !== '') {
+      searchYouTube(params, this.updateVideo.bind(this) );
+    }
   }
   render() {
     return (

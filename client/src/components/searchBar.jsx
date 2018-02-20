@@ -14,10 +14,9 @@ class SearchBar extends React.Component {
 
 
   render () {
-    return <div className="search-bar form-inline">
-        <input className="form-control" type="text" value={this.state.query} onChange={this.changeQuery.bind(this)} />
-        <button className="btn hidden-sm-down" type="submit" onClick={this.props.onSearch(this.state.query)}>
-          <span className="glyphicon glyphicon-search" /> submit
+    return <div>
+        <input type="text" value={this.state.query} onChange={this.changeQuery.bind(this)} />
+        <button type="submit" onClick={this.props.onSearch(this.state.query)}> submit
         </button>
       </div>;
   }
