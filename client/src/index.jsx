@@ -67,15 +67,15 @@ class App extends React.Component {
     return (
       <div>
         <nav>
-          <div>
+          <div className='searchbar-section'>
             <SearchBar onSearch={this.searchVideos.bind(this)} />
           </div>
         </nav>
-        <div className="videos-section"style={{float: "left"}}>
-          <span style={{display: "inline-block"}}>
+        <div className="videos-section">
+          <span className='videoplayer-section'style={{display: "inline-block"}}>
             <VideoPlayer video={this.state.currentVideo} likes={this.state.currentVideoLikes} dislikes={this.state.currentVideoDislikes} comments={this.state.currentVideoComments}/>
           </span>
-          <span style={{display: "inline-block", width: '30%'}}>
+          <span className='videolist-section'style={{display: "inline-block"}}>
             <VideoList videos={this.state.allVideos} selectVideo={this.selectVideo.bind(this)}/>
           </span>
         </div>

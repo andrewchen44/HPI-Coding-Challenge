@@ -24,4 +24,4 @@ const addTitle = function(title) {
   clickedVideo.save()
 }
 
-module.exports.addTitle;
+module.exports.addTitle = addTitle;

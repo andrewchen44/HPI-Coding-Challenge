@@ -1,0 +1,37 @@
+body {
+    background: #f1f1f1;
+}
+
+.videos-section {
+    width: 100%;
+}
+
+.videoplayer-section {
+    max-width: 45%;
+    padding: 10px;
+    margin: 10px;
+    margin-left: 10%;
+    height: 100%;
+    position: fixed;
+    top: 5%;
+}
+
+.videolist-section {
+    float:right;
+    width: 30%;
+    padding: 10px;
+    margin: 10px;
+    top: 10%;
+    margin-right: 10%;
+}
+
+.searchbar-section {
+    padding-left: 20%;
+}
+
+.video-title {
+    position: relative;
+    bottom: 50px;
+    width: 60%;
+    padding-bottom: 3%;
+}
